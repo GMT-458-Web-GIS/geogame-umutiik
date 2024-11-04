@@ -1,4 +1,4 @@
-## GMT458 Web GIS HW2 GeoGame
+## GMT458 Web GIS GeoGame
 ### Game Requirements:
 #### 1. Homepage Layout:
 Title of the game ("Flag Guessing Game") displayed prominently.
