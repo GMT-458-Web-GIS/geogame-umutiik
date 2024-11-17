@@ -20,11 +20,9 @@ Objective: The player’s task is to identify the country associated with the di
 
 Scoring: If the player clicks the correct pin on the first attempt, they earn 10 points, and the game moves to the next flag.
 
-If the first attempt is incorrect, they get a second attempt. A correct answer on this attempt earns 5 points.
+If the attempt is incorrect, they get a next flag. The player has the right to answer incorrectly 2 times in total. On the third wrong answer the game ends and returns to the main screen.
 
-If the player fails on both attempts, they are informed of the correct answer, and the game moves on to the next flag without any points awarded.
-
-Progression: The game continues until the player has guessed all 20 flags.
+Time : The time defined to complete the game is 3 minutes.
 
 #### 4.End of Game:
 
