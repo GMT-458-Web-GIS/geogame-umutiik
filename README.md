@@ -1,6 +1,10 @@
 # Flag Guessing Game
 The Flag Guessing Game is designed to test and expand players’ knowledge of the flags of the world's most populous countries. The game aims to be both educational and entertaining, encouraging players to connect visual symbols (flags) with geographic locations. By interacting with the map, players reinforce their awareness of countries' positions globally and build memory associations between flags and specific nations.
- 
+
+## Here is the game link:
+https://github.com/GMT-458-Web-GIS/geogame-umutiik.git
+
+
 ## How the Game Works
 ### 1.Starting the Game:
 
