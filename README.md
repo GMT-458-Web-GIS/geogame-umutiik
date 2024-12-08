@@ -3,6 +3,8 @@ The Flag Guessing Game is designed to test and expand players’ knowledge of th
 
 ## Here is the game link:
 
+https://gmt-458-web-gis.github.io/geogame-umutiik/
+
 ## How the Game Works
 ### 1.Starting the Game:
 
