@@ -103,6 +103,129 @@ Clicking the close button (`id="closePopup"`) or outside the pop-up closes it.
 
 ----------------------------------------------------------------------------
 
+## Closures
+
+### 1.Dynamic Event Binding for Markers:
+
+```ruby
+marker.on('click', () => checkAnswer(index));
+```
+The closure ensures that each marker retains a reference to its correct country index, enabling accurate checks when the player clicks a marker.
+
+### 2.Countdown Timer:
+
+```ruby
+countdownTimer = setInterval(() => {
+    timeRemaining--;
+    countdownElement.textContent = `Time Remaining: ${timeRemaining}`;
+    if (timeRemaining <= 0) {
+        clearInterval(countdownTimer);
+        endGameDueToTime();
+    }
+}, 1000);
+```
+The closure ensures that the countdown timer dynamically updates the remaining time and invokes `endGameDueToTime()` when time is up.
+
+### 3.Score and Attempts Management:
+
+```ruby
+function checkAnswer(selectedIndex) {
+    if (selectedIndex === currentCountryIndex) {
+        score += 10 - (attempts * 5);
+        ...
+    } else {
+        attempts++;
+        ...
+    }
+}
+```
+The closure allows `checkAnswer` to access and update the current game state (`score and attempts`) without requiring global variables or passing them as parameters.
+
+----------------------------------------------------------------------------------------
+## Benefits of ChatGPT and Chat URL:
+
+I used ChatGPt to add some details to the basic structure of my page. It was especially helpful in terms of library usage, pop-up design, countdown timer, and hint usage.
+
+https://chatgpt.com/share/6755dac1-03ec-800e-a052-58f87dc46dc5
+
+-----------------------------------------------------------------------------------------
+
+## Interacting with the DOM
+
+In the Flag Guessing Game, the code interacts extensively with the DOM to manage game flow, update the UI dynamically, and provide an engaging user experience.
+
+### 1. Handling Navigation Between Pages:
+
+Toggles the visibility of the home page (`id="homePage"`) and game page (`id="gamePage"`) when the game starts.
+
+```ruby
+document.getElementById("homePage").style.display = "none";
+document.getElementById("gamePage").style.display = "block";
+```
+Purpose: Ensures a seamless transition between the introductory section and the gameplay section.
+
+### 2. Updating the Flag to Be Guessed:
+
+Dynamically creates an <img> element for the current country's flag and adds it to the DOM.
+
+```ruby
+const flagContainer = document.getElementById('flagContainer');
+flagContainer.innerHTML = "";
+const flagElement = document.createElement("img");
+flagElement.src = countries[currentCountryIndex].flag;
+flagElement.alt = "flag";
+flagElement.className = "flag-icon";
+flagContainer.appendChild(flagElement);
+```
+Purpose: Displays the new flag to the player at the start of each round.
+
+### 3. Adding Markers to the Map:
+
+Adds markers to the Leaflet map and attaches click event listeners to them.
+
+```ruby
+const marker = L.marker(country.coordinates).addTo(map);
+marker.on('click', () => checkAnswer(index));
+```
+Purpose: Provides an interactive way for players to select countries on the map.
+
+### 4. Updating the Score and Messages:
+
+Updates the score display and shows feedback messages (e.g., "Correct!" or "Incorrect!") in response to user actions.
+
+```ruby
+document.getElementById('score').textContent = "Score: " + score;
+document.getElementById('message').textContent = "Correct! You earned " + (10 - (attempts * 5)) + " points.";
+```
+
+Purpose: Keeps the player informed of their progress and provides immediate feedback.
+
+### 5. Countdown Timer:
+
+Updates the countdown timer every second by modifying the text content of the countdown display.
+
+```ruby
+const countdownElement = document.getElementById('countdown');
+countdownElement.textContent = `Time Remaining: ${timeRemaining}`;
+```
+Purpose: Creates a sense of urgency and motivates the player to act quickly.
+
+### 6. Displaying the End Screen:
+
+Shows the end screen with a dynamic message and a "Play Again" button after the game ends. Creates a new event listener for the restart button to reload the game.
+
+```ruby
+const endScreen = document.getElementById("endScreen");
+endScreen.style.display = "flex";
+const endMessage = document.getElementById("endMessage");
+endMessage.innerHTML = `
+    <h1>${title}</h1>
+    <p>${message}</p>
+    <button id="restartButton">Play Again</button>
+`;
+```
+Purpose: Provides closure to the gameplay and encourages replayability.
+
 
 ## Game Interface and Backend:
 
